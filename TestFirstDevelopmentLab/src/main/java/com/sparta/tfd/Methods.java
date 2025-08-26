@@ -32,14 +32,6 @@ public class Methods {
     // regardless of case
     public static boolean checkInput(String input)
     {
-//        if(input.equals("password"))
-//        {
-//            return true;
-//        }
-//        else
-//        {
-//            return false;
-//        }
         input = input.toLowerCase();
         return input.equals("password");
     }
@@ -60,9 +52,14 @@ public class Methods {
     public static int sumArray(int[] nums)
     {
         int total = 0;
-        for ( int i = 0; i < nums.length; i++)
+//        for ( int i = 0; i < nums.length; i++)
+//        {
+//            total+= nums[i];
+//        }
+
+        for (int arrayValue : nums)
         {
-            total+= nums[i];
+            total += arrayValue;
         }
         return total;
     }
