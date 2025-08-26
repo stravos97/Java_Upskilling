@@ -3,6 +3,7 @@ package com.sparta.nam.refactoring;
 
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 public class AppTest {
@@ -40,6 +41,18 @@ public class AppTest {
     public void getGreeting_GivenATimeOutsideMorningAndAfternoonRanges_ReturnsGoodEvening(int time)
     {
         Assertions.assertEquals("Good evening!", App.getGreeting(time));
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "Good evening!, 2",
+            "Good morning!, 8",
+            "Good afternoon!, 15",
+            "Good evening!, 21"
+    })
+    @DisplayName("getGetting, when given a time, returns an appropriate greeting")
+    public void givenATime_Greeting_ReturnsAnAppropriateGreeting(String expected, int time){
+        Assertions.assertEquals(expected, App.getGreeting(time));
     }
 
 //    @Test
