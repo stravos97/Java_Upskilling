@@ -43,7 +43,7 @@ public class App {
 //        int currentDay = getCurrentDate.getDayOfMonth();
 //
 //
-//        int nishActualBirthdayYear = getCurrentDate.minusYears(nishYear).getYear();
+//        int nishActualBirthdayYear = (int) getCurrentDate.minusYears(nishYear).getYear();
 //        int nishActualBirthdayMonth = getCurrentDate.minusMonths(nishMonth).getMonthValue();
 //        int nishActualBirthdayDay = getCurrentDate.minusDays(nishDay).getDayOfMonth();
 //

@@ -9,10 +9,10 @@ public class Member {
     private String lastName;
     private final LocalDate joinDate;
 
-    public Member(String firstName, String lastName, LocalDate localDate) {
+    public Member(String firstName, String lastName, int year, int month, int day) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.joinDate = localDate;
+        this.joinDate = LocalDate.of(year, month, day);
     }
 
     public String getFirstName() {
