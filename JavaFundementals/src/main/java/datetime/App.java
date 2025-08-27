@@ -2,6 +2,7 @@ package datetime;
 
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
@@ -32,36 +33,41 @@ public class App {
          * Debug THISS
          */
 
-//        LocalDate nishBday = LocalDate.of(1989, 11,2);
+        LocalDate nishBday = LocalDate.of(1989, 11,2);
 //        int nishYear = nishBday.getYear();
 //        int nishMonth = nishBday.getMonthValue();
 //        int nishDay = nishBday.getDayOfMonth();
-//
+
 //        LocalDate getCurrentDate = LocalDate.now();
 //        int currentYear = getCurrentDate.getYear();
 //        int currentMonth = getCurrentDate.getMonthValue();
 //        int currentDay = getCurrentDate.getDayOfMonth();
-//
-//
+
+
+
+
 //        int nishActualBirthdayYear = (int) getCurrentDate.minusYears(nishYear).getYear();
 //        int nishActualBirthdayMonth = getCurrentDate.minusMonths(nishMonth).getMonthValue();
 //        int nishActualBirthdayDay = getCurrentDate.minusDays(nishDay).getDayOfMonth();
-//
+
 //        LocalDate nishActualBirthday = LocalDate.of(nishActualBirthdayYear, nishActualBirthdayMonth, nishActualBirthdayDay);
 //        System.out.println(nishActualBirthday.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+        System.out.println(Period.between(LocalDate.now(), nishBday));
+        LocalDate nishNextBirthday = LocalDate.of(LocalDate.now().getYear(), nishBday.getMonth(), nishBday.getDayOfMonth());
+        System.out.println("Nish's next birthday is on " + nishNextBirthday.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
 
         // Work out how old I am
         // How many days are there until my Birthday this year
 
-        LocalDate nishBday = LocalDate.of(1989, 11,2);
-
-        long daysDifference = ChronoUnit.DAYS.between(nishBday, LocalDate.now());
-        int ageInYears = (int) (daysDifference / 365.25);
-        System.out.println(ageInYears);
-
-        LocalDate nextBirthday = LocalDate.of(LocalDate.now().getYear(), nishBday.getMonth(), nishBday.getDayOfMonth());
-        long daysUntilBirthday = ChronoUnit.DAYS.between(LocalDate.now(), nextBirthday);
-        System.out.println(daysUntilBirthday);
+//        LocalDate nishBday = LocalDate.of(1989, 11,2);
+//
+//        long daysDifference = ChronoUnit.DAYS.between(nishBday, LocalDate.now());
+//        int ageInYears = (int) (daysDifference / 365.25);
+//        System.out.println(ageInYears);
+//
+//        LocalDate nextBirthday = LocalDate.of(LocalDate.now().getYear(), nishBday.getMonth(), nishBday.getDayOfMonth());
+//        long daysUntilBirthday = ChronoUnit.DAYS.between(LocalDate.now(), nextBirthday);
+//        System.out.println(daysUntilBirthday);
 
     }
 }
