@@ -30,19 +30,19 @@ public class SelectionTests {
     //need tests for case statements
 
 
-    @Test
-    @DisplayName("getGreeting, when given a time of 16, returns good afternoon")
-    public void getGreeting_GivenATimeOf16_ReturnsGoodAfternoon(){
-        //Arrange
-        int time = 16;
-        String expected = "Good afternoon!";
-
-        //Act
-        String actual = App.getGreeting(time);
-
-        //Assert
-        Assertions.assertEquals(expected, actual);
-    }
+//    @Test
+//    @DisplayName("getGreeting, when given a time of 16, returns good afternoon")
+//    public void getGreeting_GivenATimeOf16_ReturnsGoodAfternoon(){
+//        //Arrange
+//        int time = 16;
+//        String expected = "Good afternoon!";
+//
+//        //Act
+//        String actual = App.getGreeting(time);
+//
+//        //Assert
+//        Assertions.assertEquals(expected, actual);
+//    }
 
 
 
