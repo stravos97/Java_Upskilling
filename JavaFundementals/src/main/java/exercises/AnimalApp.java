@@ -25,8 +25,7 @@ public class AnimalApp {
 
         for(Animal2 animal : animals)
         {
-            System.out.println(cow.toString());
-            System.out.println(dog.toString());
+            System.out.println(animal.toString());
         }
     }
 }
