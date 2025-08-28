@@ -15,6 +15,8 @@ public class Member {
         this.joinDate = LocalDate.of(year, month, day);
     }
 
+
+
     public String getFirstName() {
         return firstName;
     }
