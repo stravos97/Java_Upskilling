@@ -22,7 +22,7 @@ public class App {
         name2 = name2.replaceAll("[LT]", "*");
         int index = name2.indexOf('N');
         String finalString = "";
-        finalString = name2.substring(0, index+ 1 );
+        finalString = name2.substring(0, index+ 1 ); //go over
 
         return finalString;
     }

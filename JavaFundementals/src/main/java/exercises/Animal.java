@@ -2,18 +2,6 @@ package exercises;
 
 import java.time.LocalDate;
 
-//abstract class Pig extends Animal{
-//
-//    public Pig(String name, int year, int month, int day) {
-//        super(name, year, month, day);
-//    }
-//
-//    public void speak()
-//    {
-//        System.out.println("The pig says: wee wee");
-//    }
-//}
-
 public class Animal {
     private String name;
     private LocalDate birthDate;
@@ -22,8 +10,6 @@ public class Animal {
         this.name = name;
         this.birthDate = LocalDate.of(year, month, day);
     }
-
-//    public abstract void speak();
 
     public String getName() {
         return name;
@@ -42,8 +28,14 @@ public class Animal {
         this.birthDate = birthDate;
     }
 
+    /**
+     * Returns a string representation of the animal.
+     * Could also use birthDate.toString() instead of String.valueOf(getAge())
+     * @return a string representation of the animal
+     */
     @Override
     public String toString() {
-        return "Person{name='" + name + "', age= " + birthDate.toString() + "}";
+        String age = String.valueOf(getAge());
+        return "The name of the animal is: " + getName() + "The age of the animal is: " + age + " years old.";
     }
 }
