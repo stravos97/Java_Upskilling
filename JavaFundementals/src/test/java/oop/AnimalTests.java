@@ -1,6 +1,7 @@
 package oop;
 
 import exercises.Animal;
+import exercises.Animal2;
 import exercises.Cow;
 import exercises.Dog;
 import org.junit.jupiter.api.Assertions;
@@ -8,6 +9,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class AnimalTests {
 //
@@ -125,9 +127,9 @@ public class AnimalTests {
         //Arrange
         Cow cow = new Cow("Daisy", 2008, 7, 1, "Coke");
         //Act
-        cow.getFavouriteDrink();
+        String favouriteDrink = cow.getFavouriteDrink();
         //Assert
-        Assertions.assertEquals("Coke", cow.getFavouriteDrink());
+        Assertions.assertEquals("Coke", favouriteDrink);
     }
 
     @Test
@@ -137,9 +139,9 @@ public class AnimalTests {
         //Arrange
         Dog dog = new Dog("John", 2013, 6, 1, "Run");
         //Act
-        dog.getFavouriteGame();
+        String favouriteGame = dog.getFavouriteGame();
         //Assert
-        Assertions.assertEquals("Run", dog.getFavouriteGame());
+        Assertions.assertEquals("Run", favouriteGame);
     }
 
     @Test
@@ -150,11 +152,11 @@ public class AnimalTests {
         Cow cow = new Cow("Daisy", 2008, 7, 1, "Water");
         Dog dog = new Dog("John", 2013, 6, 1, "Fetch");
         //Act
-        dog.speak();
-        cow.speak();
+        String dogSpeak = dog.speak();
+        String cowSpeak = cow.speak();
         //Assert
-        Assertions.assertEquals("Moo!", cow.speak());
-        Assertions.assertEquals("Woof!", dog.speak());
+        Assertions.assertEquals("Moo!", cowSpeak);
+        Assertions.assertEquals("Woof!", dogSpeak);
     }
 
     @Test
@@ -165,10 +167,40 @@ public class AnimalTests {
         Cow cow = new Cow("Daisy", 2008, 7, 1, "Water");
         Dog dog = new Dog("John", 2013, 6, 1, "Fetch");
         //Act
-        dog.toString();
-        cow.toString();
+        String dogToString = dog.toString();
+        String cowToString = cow.toString();
         //Assert
-        Assertions.assertEquals("The name of the animal is: Daisy\nThe age of the animal is: 17 years old.\n, and it can speak! : Moo!\nand its favourite drink is Water", cow.toString());
-        Assertions.assertEquals("The name of the animal is: John\nThe age of the animal is: 12 years old.\n, and it can speak! : Woof! and its favourite game is Fetch", dog.toString());
+        Assertions.assertEquals("The name of the animal is: Daisy\nThe age of the animal is: 17 years old.\n, and it can speak! : Moo!\nand its favourite drink is Water", dogToString);
+        Assertions.assertEquals("The name of the animal is: John\nThe age of the animal is: 12 years old.\n, and it can speak! : Woof! and its favourite game is Fetch", cowToString);
     }
+
+    /**
+     * Finish these tests
+     */
+
+//    @Test
+//    @DisplayName("Get all animals in the  array list for Animals2")
+//    public void getAllAnimalsTest()
+//    {
+//        //Arrange
+//        Cow cow = new Cow("Daisy", 2008, 7, 1, "Water");
+//        Dog dog = new Dog("John", 2013, 6, 1, "Fetch");
+//        ArrayList<Animal2> animals = Animal2.getAllAnimals();
+//        //Act
+//        for(Animal2 animal : animals)
+//        {
+//            System.out.println(animal.hashCode());
+//        }
+//
+//    }
+//
+//    @Test
+//    @DisplayName("Change an animal object in the list")
+//    public void setAnimalsTest()
+//    {
+//        //Arrange
+//        Cow cow = new Cow("Daisy", 2008, 7, 1, "Water");
+//        Dog dog = new Dog("John", 2013, 6, 1, "Fetch");
+//
+//    }
 }

@@ -1,21 +1,26 @@
 package exercises;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public abstract class Animal2 {
 
-    protected String name;
+    protected String name; //wrong
     protected LocalDate birthDate;
+    static ArrayList<Animal2> animals = new ArrayList<Animal2>();
 
     public Animal2(String name, int year, int month, int day) {
         this.name = name;
         this.birthDate = LocalDate.of(year, month, day);
+        animals.add(this); // Add the newly created animal object to the list
+
     }
 
 
     /**
      * Returns a string representation of the animal.
      * Could also use birthDate.toString() instead of String.valueOf(getAge())
+     * THIS IS WRONG, fix it
      * @return a string representation of the animal
      */
     @Override
@@ -51,5 +56,50 @@ public abstract class Animal2 {
     }
 
     public abstract String speak();
+
+    /**
+     * Add an indivdual animal object to the list. not really needed as animals are automatically added to the list anyway.
+     * @param newAnimal
+     */
+    public static void setAnimals(Animal2 newAnimal)
+    {
+        animals.add(newAnimal);
+    }
+
+    /**
+     * Get a specific animal from the list.
+     * @param index
+     * @return
+     */
+    public static Animal2 getSpecificAnimal(int index)
+    {
+        return animals.get(index);
+    }
+
+    /**
+     * Get all animals in the list.
+     * @return
+     */
+    public static ArrayList<Animal2> getAllAnimals()
+    {
+        return animals;
+    }
+
+    /**
+     * Remove a specific animal from the list.
+     * @param index
+     */
+    public static void removeAnimal(int index)
+    {
+        animals.remove(index);
+    }
+
+    /**
+     * Remove all animals from the list.
+     */
+    public static void removeAllAnimals()
+    {
+        animals.clear();
+    }
 
 }
