@@ -2,6 +2,7 @@ package exercises;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class AnimalApp {
     public static void main(String[] args) {
@@ -18,7 +19,16 @@ public class AnimalApp {
 
 
           Cow cow = new Cow("Daisy", 2008, 7, 1, "Water");
-          Dog dog = new Dog("John", 2013, 6, 1, "Fetch");
+          Cow cow2 = new Cow("Daisy", 2008, 7, 1, "Water");
+          HashSet<Animal2> animalsHash = new HashSet<>();
+
+          animalsHash.add(cow);
+          animalsHash.add(cow2);
+
+        System.out.println(cow.equals(cow2));
+        System.out.println(cow.hashCode());
+        System.out.println(cow2.hashCode());
+//          Dog dog = new Dog("John", 2013, 6, 1, "Fetch");
 
 //        ArrayList<Animal2> animals = new ArrayList<>();
 //        animals.add(cow);

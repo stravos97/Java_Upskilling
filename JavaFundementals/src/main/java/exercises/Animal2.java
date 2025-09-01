@@ -2,6 +2,7 @@ package exercises;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public abstract class Animal2 {
 
@@ -102,4 +103,17 @@ public abstract class Animal2 {
         animals.clear();
     }
 
+    @Override
+    public boolean equals(Object object) {
+        if (!(object instanceof Animal2 animal)) {
+            return false;
+        }
+        return Objects.equals(name, animal.name) && Objects.equals(birthDate, animal.birthDate);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, birthDate);
+
+    }
 }

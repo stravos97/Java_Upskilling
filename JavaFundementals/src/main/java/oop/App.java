@@ -1,27 +1,23 @@
 package oop;
 
-import java.lang.reflect.Array;
 import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
 
 public class App {
     public static void main(String[] args) {
-//        Member nish = new Member("Nish", "Mandal",2025,1,1);
-//        Member haashim = new Member("Haashim", "Alvi",2024,1,1);
-//        Member tom = new Member("Tom", "Smith",2023,1,1);
-//
-////        System.out.println(nish.getFullName());
-////        System.out.println(haashim.getLastName());
-////        System.out.println(tom.getFirstName());
-////        System.out.println(haashim.getMemberDays());
-//
-//        Member[] array = {nish, haashim, tom};
-//
-//        for(Member arrayElement : array)
-//        {
-//            System.out.println(arrayElement.getFullName());
-//            System.out.println(arrayElement.getMemberDays());
-//        }
+        Member m1 = new Member("Cathy", "French", 1990, 5, 15);
+        Member m2 = new Member("Nish", "Mandal", 2025, 1, 20);
+        Member noel = new Member("Noel", "Gallagher");
+        System.out.println(m1.getFullName());
+        System.out.println(m1.getMemberDays());
+        System.out.println(m2.getFullName());
+        System.out.println(m2.getMemberDays());
+
+        m2.setLastName("Jones");
+
+        System.out.println(m2.getFullName());
+
+        m1.getDate();
+        Member.getDate();
 
         BaseballMember zainab = new BaseballMember("Zainab", "Farooq", 2022,12,6, "fielder");
         System.out.println(zainab.getFullName());
@@ -29,6 +25,23 @@ public class App {
         System.out.println(zainab.getPosition());
         zainab.setPosition("pitcher");
         System.out.println(zainab.getPosition());
+
+        Member[] members = {m1, m2, zainab};
+
+
+        System.out.println(m1.getClass());
+        System.out.println(m1.toString());
+        System.out.println(m1.equals(m2));
+        System.out.println(m1.hashCode());
+        System.out.println(m2.hashCode());
+
+        System.out.println(zainab.getClass());
+        System.out.println(zainab.toString());
+        System.out.println(zainab.hashCode());
+
+        for(Member m : members){
+            System.out.println(m.toString());
+        }
 
         Shape rectangle = new Rectangle(5,5);
         System.out.println(rectangle);
