@@ -66,6 +66,11 @@ public class Member implements Printable, Movable {
         // checking whether the firstname of the this object, is the same as the firstname of the the obejct we're comparing it to, same with lastname and joindate
         return Objects.equals(firstName, member.firstName) && Objects.equals(lastName, member.lastName) && Objects.equals(joinDate, member.joinDate);
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.firstName, this.lastName, this.joinDate);
+    }
 }
 
 
