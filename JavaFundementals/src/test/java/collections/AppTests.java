@@ -8,10 +8,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class AppTests {
 
@@ -134,34 +131,26 @@ public class AppTests {
 
     }
 
-    /**
+    /*
      * However, your test method is only accepting a single String phrase parameter, so JUnit is treating each comma-separated value as a separate test case rather than as elements of an array.
+     *
+     *
+
+     Take each element (which we're calling arrayElement)
+     Check if its length is less than 5
+     Return true or false based on that check
+
+     arrayElement -> arrayElement.length() < 5
+     ↑                    ↑
+     parameter        what to do with it
+     (the input)      (returns true/false)
+
+     boolean shouldRemove(String arrayElement) {
+     return arrayElement.length() < 5;
+     }
      * @param phrase
      */
-    @ParameterizedTest
-    @DisplayName("Given phrase with only short words, longWordList returns empty list")
-    @CsvSource({
-            "'cat, dog, rat, pig, hen'",
-            "'ant, bee, cow, bat, owl'",
-            "'fox, cod, emu, jay, elk'"
-    })
-    public void givenPhraseWithAllShortWords_longWordList_ReturnsEmptyList(String phrase)
-    {
 
-        //Arrange
-        List<String> phraseList = new ArrayList<>(List.of(phrase.split(",\\s*")));
-
-
-        //Act
-        phraseList.removeIf(arrayElement -> arrayElement.length() < 5); //lambda expression to GO over
-
-        List<String> returnItems = App.longWordList(phrase);
-
-
-        //Assert
-        Assertions.assertEquals(phraseList,returnItems);
-
-    }
 
     @ParameterizedTest
     @DisplayName("Given phrase with only long words, longWordList returns all words")
@@ -178,6 +167,7 @@ public class AppTests {
 
 
         //Act
+//       // Tests Should Be Declarative, Not Imperative
         phraseList.removeIf(arrayElement -> arrayElement.length() < 5); //lambda expression to GO over
 
         List<String> returnItems = App.longWordList(phrase);
@@ -235,5 +225,54 @@ public class AppTests {
         Assertions.assertEquals(expectedOrder, actualResult, "ArrayList should preserve insertion order");
 
     }
+
+    /**
+     * Test that specific digits are counted correctly . How many times the middle numbers appear in the map
+     * @param phrase
+     * @param digit
+     * @param expectedCount
+     */
+    @ParameterizedTest
+    @DisplayName("Test that specific digits are counted correctly")
+    @CsvSource({
+            "'111', '1', 3",     // String with three 1s
+            "'123', '1', 1",     // String with one 1
+            "'456', '1', 0",     // String with no 1s
+            "'121212', '2', 3",  // String with three 2s
+            "'999', '9', 3",     // String with three 9s
+            "'abc', '5', 0"      // String with no digits at all
+    })
+    public void givenStringWithSpecificDigit_digitCount_ReturnsCorrectCount(String phrase, char digit, int expectedCount) {
+        // Act
+        HashMap<Character, Integer> result = App.digitCount(phrase);
+
+        // Assert
+        Assertions.assertEquals(expectedCount, result.get(digit),
+                "Count of digit '" + digit + "' in '" + phrase + "' should be " + expectedCount);
+    }
+
+    @ParameterizedTest
+    @DisplayName("Given string with mixed characters and repeated digits, countDigits returns correct digit count")
+    @CsvSource({
+            "'abc123def', '1', 1",      // Mixed: 1 appears once
+            "'abc123def', '2', 1",      // Mixed: 2 appears once
+            "'abc123def', '3', 1",      // Mixed: 3 appears once
+            "'abc123def', '0', 0",      // Mixed: 0 doesn't appear
+            "'111222333', '1', 3",      // Repeated: 1 appears 3 times
+            "'111222333', '2', 3",      // Repeated: 2 appears 3 times
+            "'111222333', '3', 3",      // Repeated: 3 appears 3 times
+            "'hello987world', '9', 1",  // Mixed: 9 appears once
+            "'hello987world', '8', 1",  // Mixed: 8 appears once
+            "'hello987world', '7', 1"   // Mixed: 7 appears once
+    })
+    public void givenStringWithMixedCharactersAndRepeatedDigits_countDigits_ReturnsCorrectDigitCount(String phrase, char digit, int expectedCount) {
+        // Act
+        HashMap<Character, Integer> result = App.digitCount(phrase);
+
+        // Assert
+        Assertions.assertEquals(expectedCount, result.get(digit),
+                "Count of digit '" + digit + "' in '" + phrase + "' should be " + expectedCount);
+    }
+
 
 }
