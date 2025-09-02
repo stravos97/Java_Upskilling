@@ -248,7 +248,7 @@ public class AppTests {
     })
     public void givenStringWithSpecificDigit_digitCount_ReturnsCorrectCount(String phrase, char digit, int expectedCount) {
         // Act
-        HashMap<Character, Integer> result = App.digitCount(phrase);
+        Map<Character, Integer> result = App.digitCount(phrase);
 
         // Assert
         Assertions.assertEquals(expectedCount, result.get(digit),
@@ -271,7 +271,7 @@ public class AppTests {
     })
     public void givenStringWithMixedCharactersAndRepeatedDigits_countDigits_ReturnsCorrectDigitCount(String phrase, char digit, int expectedCount) {
         // Act
-        HashMap<Character, Integer> result = App.digitCount(phrase);
+        Map<Character, Integer> result = App.digitCount(phrase);
 
         // Assert
         Assertions.assertEquals(expectedCount, result.get(digit),

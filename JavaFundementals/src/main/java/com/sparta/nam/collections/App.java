@@ -96,7 +96,7 @@ public class App {
      * @param phrase
      * @return
      */
-    public static HashMap<Character, Integer> digitCount(String phrase) {
+    public static Map<Character, Integer> digitCount(String phrase) {
         //you are given a string. we first need to change it to make it iterable e.g. char array
         //we iterate through the char array ignoring letters and focusing on numbers
         // for our hashmap we are a using a key value pair. the keys for the map are digits 0-9.
@@ -104,7 +104,7 @@ public class App {
         //our final output is a series of key value pairs showing how many times a number is in the list
 
 
-        HashMap<Character, Integer> numberMap = new HashMap<>(); //Character represents key, Integer represents value
+        Map<Character, Integer> numberMap = new HashMap<>(); //Character represents key, Integer represents value
         //we need to now create all of JUST the keys
         for (int i = 0; i <= 9; i++) {
 //            char numToChar = (char) i; //wrong
