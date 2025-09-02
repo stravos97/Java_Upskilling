@@ -25,8 +25,12 @@ public class AppTests {
         Assertions.assertEquals(integerHashSet, returnItems);
     }
 
+    /**
+     * Get error with Integer.MAX_VALUE
+     * @param maxScore
+     */
     @ParameterizedTest
-    @DisplayName("Given max value of out of bounds, makeFiveSet returns empty set")
+    @DisplayName("Given min value of out of bounds, makeFiveSet returns empty set")
     @ValueSource(ints = {0, 4, Integer.MIN_VALUE})
     public void givenMaxValueOfOutOfBounds_makeFiveSet_ReturnsEmptySet(int maxScore)
     {
