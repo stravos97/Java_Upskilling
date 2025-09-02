@@ -7,10 +7,8 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import java.awt.color.ICC_ColorSpace;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.Date;
 
 public class AnimalTests {
@@ -74,17 +72,59 @@ public class AnimalTests {
     }
 
     @ParameterizedTest
-    @DisplayName("UnHappy path for set vaccination date")
-    @ValueSource(strings = {"01-January-2022", "02-02-TwentyTwentyTwo", "3rd of March 2022"})
-    public void setVaccinationDateUnHappyPath(String dateString) {
-
-        //Arrange
+    @DisplayName("Should throw ParseException for invalid date formats")
+    @ValueSource(strings = {
+            "01-January-2022",
+            "02-02-TwentyTwentyTwo",
+            "3rd of March 2022",
+            "2022/13/01",
+            "2022-02-30",
+            "not-a-date"
+    })
+    public void setVaccinationDate_InvalidFormats_ThrowsParseException(String invalidDateString) {
+        // Arrange
         Animal sut = new Animal();
 
-        //Assert
-        var exception = Assertions.assertThrows(ParseException.class, () -> sut.setVaccinationDate(dateString));
-        Assertions.assertEquals(ParseException.class, exception.getClass());
+        // Act
+        var exception = Assertions.assertThrows(
+                ParseException.class,
+                () -> sut.setVaccinationDate(invalidDateString),
+                "Expected ParseException for invalid date: " + invalidDateString
+        );
 
+        String expectedMessage = "Invalid date format: " + invalidDateString + ". Use dd-MM-yyyy";
+        String actualMessage = exception.getMessage();
+
+        //Assert
+        Assertions.assertFalse(exception.getMessage().isEmpty());
+        Assertions.assertEquals(expectedMessage, actualMessage);
     }
 
+
+    @Test
+    @DisplayName("Should throw IllegalArgumentException for null vaccination date")
+    public void setVaccinationDate_Null_ThrowsIllegalArgumentException() {
+        // Arrange
+        Animal sut = new Animal();
+
+        // Act
+        var nullException = Assertions.assertThrows(
+                IllegalArgumentException.class,
+                () -> sut.setVaccinationDate(null),
+                "Expected IllegalArgumentException for null vaccination date"
+        );
+
+        var emptyStringException = Assertions.assertThrows(
+                IllegalArgumentException.class,
+                () -> sut.setVaccinationDate(""),
+                "Expected IllegalArgumentException for empty vaccination date"
+        );
+
+        String expectedMessage = "Vaccination date cannot be null or empty";
+
+
+        // Assert
+        Assertions.assertEquals(expectedMessage, nullException.getMessage());
+        Assertions.assertEquals(expectedMessage, emptyStringException.getMessage());
+    }
 }

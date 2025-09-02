@@ -46,31 +46,29 @@ public class App {
             myHamster.setVaccinationDate("27-07-2022");
             System.out.println(myHamster.getVaccinationDate());
 
-        } catch (Exception e) {
-            System.out.println("Caught an Exception object");
         }
 
 
 
 
-//        catch (NullPointerException e) {
-//            System.out.println("Name cannot be null");
-//        }
-//        catch (IllegalArgumentException e) {
-//            System.out.println("Age cannot be negative");
-//        }
-//        catch (ParseException e) {
-//            System.out.println("Date format is incorrect");
-//        }
-//        catch (RuntimeException e) {
-//            System.out.println("Caught an RuntimeException object");
-//        }
-//        catch (Exception e) {
-//            System.out.println("Caught an Exception object");
-//        }
-//        finally{
-//            System.out.println("Program is complete");
-//        }
+        catch (NullPointerException e) {
+            System.out.println("Name cannot be null");
+        }
+        catch (IllegalArgumentException e) {
+            System.out.println("Age cannot be negative");
+        }
+        catch (ParseException e) {
+            System.out.println("Date format is incorrect");
+        }
+        catch (RuntimeException e) {
+            System.out.println("Caught an RuntimeException object");
+        }
+        catch (Exception e) {
+            System.out.println("Caught an Exception object");
+        }
+        finally{
+            System.out.println("Program is complete");
+        }
     }
 
 
