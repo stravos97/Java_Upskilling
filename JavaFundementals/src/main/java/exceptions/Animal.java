@@ -84,7 +84,7 @@ public class Animal {
          */
         try {
             SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
-            formatter.setLenient(false);
+            formatter.setLenient(false); //when the date is 30th of the month e.g. feb stops it from being moved to 1st
             vaccinationDate = formatter.parse(dateString);
 
         } catch (ParseException e) {
