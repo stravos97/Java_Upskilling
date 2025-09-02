@@ -113,7 +113,7 @@ public class App {
             numberMap.put(numToChar, 0);
         }
 
-        //We are looping through the string array, and only checking if the
+        //We are looping through the string array, and only checking if the characters of the string are digits
         for(int i = 0; i < phrase.length(); i++ )
         {
             char eachCharOfString = phrase.charAt(i);
