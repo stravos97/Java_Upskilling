@@ -53,6 +53,32 @@ public class App {
 
 
         // Queues and Stacks
+
+        Stack<String> myNameStack = new Stack<>();
+        myNameStack.push("Haashim");
+        myNameStack.push("Farah");
+        myNameStack.push("Vineet");
+        myNameStack.push("Dayanna");
+
+        // See who was last put onto the stack
+        System.out.println(myNameStack.peek());
+        System.out.println(myNameStack);
+        // Takes the last thing that was put on the stack and returns it as a string
+        System.out.println(myNameStack.pop());
+        System.out.println(myNameStack);
+
+
+        Queue<String> myNamesQueue = new LinkedList<>();
+        myNamesQueue.offer("Haashim");
+        myNamesQueue.offer("Farah");
+        myNamesQueue.offer("Vineet");
+        myNamesQueue.offer("Dayanna");
+        System.out.println(myNamesQueue);
+        System.out.println(myNamesQueue.peek());
+        System.out.println(myNamesQueue.poll());
+        System.out.println(myNamesQueue);
+// Collections activity
+
         // HashMaps (activitiy)
         // Collections activity
 
