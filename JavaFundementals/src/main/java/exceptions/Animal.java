@@ -22,11 +22,18 @@ public class Animal {
         setVaccinationDate(vaccinationDate);
     }
 
+    public Date getVaccinationDate() {
+        return vaccinationDate;
+    }
     public String getName() {
         if(name == null){
             throw new NullPointerException("Name must not be null");
         }
         return name.toUpperCase();
+    }
+
+    public int getAge() {
+        return age;
     }
 
     public void setAge(int newAge) {
@@ -37,6 +44,10 @@ public class Animal {
     }
 
     public void setName(String name) {
+        if (name == null)
+        {
+            throw new NullPointerException("Name must not be null");
+        }
         this.name = name;
     }
 
@@ -59,12 +70,10 @@ public class Animal {
         }
     }
 
-    public Date getVaccinationDate() {
-        return vaccinationDate;
-    }
+
 
     public void setVaccinationDate(String dateString) throws ParseException {
-            vaccinationDate = new SimpleDateFormat("dd-MM-yyyy").parse(dateString);
+        vaccinationDate = new SimpleDateFormat("dd-MM-yyyy").parse(dateString);
 
     }
 }
